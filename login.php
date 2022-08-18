@@ -1,11 +1,18 @@
 <?php
     session_start();
+    include('conecta.php');
 
     $email = $_POST["email"];
-    $senha = $_POST["senha"];
+    $senha = md5($_POST["senha"]);
 
-    if ($email == 'cc@gmail.com' && $senha == 'Aa1') {
-        $nome="Claudiomiro";
+    $consulta = "SELECT * FROM usuario WHERE email='$email' and senha='$senha'";
+
+    $resultado = mysqli_query($conexao, $consulta);
+    $usuario = mysqli_fetch_assoc($resultado);
+    $qtdeLinhas = mysqli_num_rows($resultado);
+
+    if ($qtdeLinhas == 1) {
+        $nome= $usuario["nome"];
         $_SESSION["usuario"] = $nome;
         header("Location: benvindo.php");
     } else {

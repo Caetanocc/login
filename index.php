@@ -26,9 +26,10 @@
         ?>
 
         <form accept-charset="UTF-8" action="login.php" autocomplete="off" method="POST" >
-        <p>   E-mail: <input id="email" name="email" type="email"    required /> 
-        <br/> Senha:  <input id="senha" name="senha" type="password" required 
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{3,}$"/> 
+        <p>   E-mail: <input class="input is-success" id="email" name="email" type="email"    required /> 
+        <br/> Senha:  <input class="input is-success" id="senha" name="senha" type="password" required 
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{3,}$"
+        title="Senha deve ter ao menos 1 maiúscula, 1 minúscula e 1 caracter especial"/> 
 
         <br /><br /> 
         <button class="botao" type="submit" disabled id="btnEntrar">Entrar</button></p>
