@@ -1,43 +1,47 @@
-<?php session_start() ?>
+<?php session_start() ;
+    include("alerta.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="estilos.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link href="estilo.css" rel="stylesheet">
     <link href="bulma.min.css" rel="stylesheet">
-    
-    <title>Document</title>
-</head>
-<body>
 
-<section class="is-fullheight">
-    <div class="container has-text-centered">
+  </head>
+  <body>
 
-        <h2 class="title"> Sistema de Login Etec</h2>
+    <div class="container has-text-centered" id="principal">
+      <h3 class="title"> Sistema Login Etec</h3>
 
-        <?php if (isset($_SESSION["invalido"])){?>
-            <div class="notification is-danger">
-                <p>Erro:  Usuário ou senha inválidos!</p>
-            </div>
-        <?php };
-        unset($_SESSION["invalido"]);
-        ?>
+      <?php
+      mostraAlerta("danger");
+      mostraAlerta("success");
+      ?>
 
-        <form accept-charset="UTF-8" action="login.php" autocomplete="off" method="POST" >
-        <p>   E-mail: <input class="input is-success" id="email" name="email" type="email"    required /> 
-        <br/> Senha:  <input class="input is-success" id="senha" name="senha" type="password" required 
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{3,}$"
-        title="Senha deve ter ao menos 1 maiúscula, 1 minúscula e 1 caracter especial"/> 
+      <form action="login.php" method="POST"  >
+      E-mail <input required class="input is-success" id="email" 
+      name="email"
+      type="email" placeholder="Informe e-mail" /> <br />
+      Senha  <input required class="input is-success" id="senha" 
+      name="senha" type="password"       
+      title="Senha deve conter ao menos uma letra minuscula" /> <br />
+      <br />
+      <!-- pattern="^(?=.*[a-z]).$" -->
+        <button id="btnEntrar" type="submit" value="Submit" class="button" disabled>Entrar</button>
+      </form>
 
-        <br /><br /> 
-        <button class="botao" type="submit" disabled id="btnEntrar">Entrar</button></p>
-        </form>
+      <form action="cadastro.php"> 
+
+      <button id="btnCadastar" type="submit" value="Submit" class="button" >Novo Usuário</button>
+
+      </form>
     </div>
 
-</section>
 
-</body>
-<script src="app.js"></script>
+  </body>
+  <script src="app.js"></script>
 </html>

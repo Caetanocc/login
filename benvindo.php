@@ -1,7 +1,4 @@
-<?php 
-session_start() ;
-include("validar_login.php");
-?>
+<?php     session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="pt-Br">
@@ -22,9 +19,15 @@ include("validar_login.php");
     <div class="hero-body">
         <div class="container has-text-centered">
 
-            <h2> Olá, <?php echo $_SESSION["usuario"];  ?> <a href="logout.php"> Sair</a></h2>
+            <h2> Olá, <?php echo $_SESSION["usuario"];  ?> 
+            <a href="logout.php"> Sair</a></h2>
 
             <table id="main" class="table">
+            <tr><td> 
+                        <button class="botao" type="submit"  id="btnSortear">Sortear</button></p>
+                </td>
+
+            </tr>
                 <tr>
                 <td>
                 <div id="lista"></div>
@@ -33,10 +36,6 @@ include("validar_login.php");
                 <div id="sorteados"></div>
                 </td>
                     
-                </tr>
-                <tr><td> 
-                <button class="botao" type="submit"  id="btnSortear">Sortear</button></p>
-                </td>
                 </tr>
             </table>    
             <div id="snackbar"></div>
